@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import LoginMenu from './components/loginMenu';
 
 function App() {
   return (
     <div className="App">
-
+      <LoginMenu />
     </div>
   );
 }
