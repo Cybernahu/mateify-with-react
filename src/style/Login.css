@@ -4,3 +4,36 @@
 .typeOfLetter {
   font-family: "Righteous", cursive;
 }
+.loginContainer{
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2%;
+  margin-bottom: 2%;
+  max-width: 50%;
+  height: 85%;
+
+  padding: 20px;
+
+  align-items: center;
+  justify-content: center;
+}
+.displayBlock{
+  display: block;
+}
+.positionContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+
+  width: auto;
+}
+.iconLoginBg{
+  width: 200px;
+  border-radius: 50%;
+  background-color: pink;
+}
+
+.loginInput{
+  margin: 44px;
+}
