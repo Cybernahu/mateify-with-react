@@ -4,36 +4,50 @@
 .typeOfLetter {
   font-family: "Righteous", cursive;
 }
-.loginContainer{
+.loginContainer {
   display: flex;
   flex-direction: column;
 
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 2%;
   margin-bottom: 2%;
-  max-width: 50%;
-  height: 85%;
+  width: 80%;
+  height: 90%;
 
   padding: 20px;
 
   align-items: center;
   justify-content: center;
 }
-.displayBlock{
+.displayBlock {
   display: block;
 }
-.positionContent{
+.positionContent {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
 
   width: auto;
 }
-.iconLoginBg{
+.iconLoginBg {
   width: 200px;
   border-radius: 50%;
   background-color: pink;
 }
-
-.loginInput{
+.loginInput {
   margin: 44px;
+  width: 500px;
+}
+.forgotPassword {
+
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.forgotPasswordButton {
+  color: #009688;
+}
+.createPlatList {
+  width: 500px;
+  height: 50px;
 }
