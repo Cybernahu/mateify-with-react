@@ -1,11 +1,15 @@
-import React from 'react';
-import LoginMenu from './components/loginMenu';
+import React from "react";
+import LoginMenu from "./components/loginMenu";
+import CreatePlayList from './components/CreatePlayList';
 
 function App() {
   return (
-    <div className="App">
-      <LoginMenu />
-    </div>
+
+      <div className="App">
+
+        <LoginMenu />
+      </div>
+
   );
 }
 

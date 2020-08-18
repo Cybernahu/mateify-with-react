@@ -1,19 +1,29 @@
 import React, { useState } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
+
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
 import "./../style/Login.css";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-import DataUser from './../dataBase/userData.json';
+import DataUser from "./../dataBase/userData.json";
+import NavBar from "./navBar";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
 
 const LoginMenu = (props, e) => {
   const [inputUser, setInputUser] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+
+  let history = useHistory();
 
   const inputContentChange = (e) => setInputUser(e.target.value);
   const inputPasswordChange = (e) => setInputPassword(e.target.value);
@@ -22,20 +32,19 @@ const LoginMenu = (props, e) => {
     if (element.email === inputUser && element.password === inputPassword) {
       return true;
     }
-};
-  const usuarios = DataUser.filter(chequeaUsuariosConFilter);
-  console.log(usuarios);
-
+  };
+  const chequeaUsuario = () => {
+    const usuarios = DataUser.filter(chequeaUsuariosConFilter);
+    if (usuarios.length > 0) {
+      history.push("/createPlayList")
+    } else {
+      return false;
+    }
+  };
   return (
     <div>
       <header>
-        <AppBar position="static" className="NavBar">
-          <Toolbar variant="dense">
-            <Typography variant="h6" color="inherit" className="typeOfLetter">
-              Mateify
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <NavBar />
       </header>
       <div>
         <Paper elevation={2} outlined className="loginContainer">
@@ -75,6 +84,7 @@ const LoginMenu = (props, e) => {
                 variant="contained"
                 color="secondary"
                 className="createPlatList"
+                onClick={chequeaUsuario}
               >
                 Comenzar a crear playlist
               </Button>
@@ -87,7 +97,7 @@ const LoginMenu = (props, e) => {
           </Box>
 
           <Box mb="30px">
-            <Link href="#">¿NO TIENES CUENTA?</Link>
+            <Button >¿NO TIENES CUENTA?</Button>
           </Box>
           <Box>
             <Button color="secondary" variant="outlined">
