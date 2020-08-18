@@ -1,13 +1,13 @@
 import React from "react";
 import LoginMenu from "./components/loginMenu";
-import CreatePlayList from './components/CreatePlayList';
+import PlayList from './components/PlayList';
 
 function App() {
   return (
 
       <div className="App">
 
-        <LoginMenu />
+        <PlayList />
       </div>
 
   );
