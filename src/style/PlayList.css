@@ -1,0 +1,20 @@
+.FirstTableContainer{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
+.searchIput{
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+}
+.firstTableTitle{
+color:  #009688;
+}
+.secondTableContainer{
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
