@@ -43,9 +43,6 @@ const LoginMenu = (props, e) => {
   };
   return (
     <div>
-      <header>
-        <NavBar />
-      </header>
       <div>
         <Paper elevation={2} outlined className="loginContainer">
           <LockOutlinedIcon

@@ -14,10 +14,9 @@ import AddCircle from "@material-ui/icons/AddCircle";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 
+
 const PlayList = () => {
-  // 1 agregar un boton con onClick
-  // 2 leer el valor de la cancion que el usuario quiere agregar y guardar ese valor
-  // 3 guardar ese valor y mostrarlo en lalista
+
   const [inputValue, setInputValue] = useState("");
   const [listaFiltrada, setListaFiltrada] = useState([]);
   const [playList, setPlayList] = useState([]);
@@ -33,8 +32,8 @@ const PlayList = () => {
       return false;
     }
   };
-  const filtrarCancionesUuid = (cancion) => {
-    if (cancion.uuid(canciones.uuid)) {
+  const filtrarCancionesUuid = (cancion, uuid) => {
+    if (cancion.uuid == uuid) {
       return true;
     } else {
       return false;
@@ -52,15 +51,17 @@ const PlayList = () => {
   const handleAddSong = (e , uuid) =>{
     //filter para encontrar la cancion
     // agregarla al playlist con setPlaylist
-    setPlayList(nwSong);
-  }
-
-
-
-
+  setPlayList(
+    [...listaFiltrada].concat(
+      canciones.filter((cancion) => 
+      filtrarCancionesUuid(cancion, uuid)
+       ).map((cancion)=> ({ ...cancion,count:0 }))
+    )
+  )
+  
+  };
   return (
     <div>
-      <NavBar />
       <div className="searchIput">
         <input
           placeholder="Buscar"
@@ -118,13 +119,13 @@ const PlayList = () => {
             </TableRow>
           </TableHead>
 
-          {listaFiltrada.map((canciones) => (
+          {listaFiltrada.map((playList) => (
             <TableBody>
               <TableRow>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
+                <TableCell>{playList.name}</TableCell>
+                <TableCell> {playList.artist.name} </TableCell>
+                <TableCell> {playList.album} </TableCell>
+                <TableCell> {playList.duration} </TableCell>
                 <TableCell>
                   <ThumbUpAltIcon /> <ThumbDownIcon />{" "}
                 </TableCell>
